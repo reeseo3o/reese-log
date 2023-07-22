@@ -15,6 +15,9 @@ const MetaConfig: React.FC<MetaConfigProps> = ({ ...props }) => {
     ...props,
   }
 
+  console.log(meta.url)
+
+
   return (
     <Head>
       <title>{meta.title}</title>
