@@ -6,7 +6,7 @@ const CONFIG = {
     role: "Frontend developer",
     bio: "I Love clean code.",
     email: "notyaeji@gmail.com",
-    linkedin: "reese",
+    // linkedin: "reese",
     github: "reeseo3o",
     instagram:''
   },
@@ -23,7 +23,7 @@ const CONFIG = {
   },
 
   // CONFIG configration (required)
-  link: "https://reese-log.vercel.app",
+  link: "/og_image.png",
   since: 2023, // If leave this empty, current year will be used.
   lang: "ko-KR", // ['en-US', 'zh-CN', 'zh-HK', 'zh-TW', 'ja-JP', 'es-ES', 'ko-KR']
   ogImageGenerateURL: "https://og-image-korean.vercel.app", // The link to generate OG image, don't end with a slash
