@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://reese-log.vercel.app</loc><lastmod>2023-11-18T21:24:39.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/deep-dive-1</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/deep-dive-2</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/deep-dive-3</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/deep-dive-4</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/start-aws</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/what-is-paas</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/ec2</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/nextjs</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/reactivity-with-frameworks</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/daily-posting</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://reese-log.vercel.app/nextjs-app-routing-conventions</loc><lastmod>2023-09-20T13:24:14.628Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/mutation-observer</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/deep-dive-1</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/deep-dive-2</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/deep-dive-3</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/deep-dive-4</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/start-aws</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/what-is-paas</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/ec2</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/nextjs</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/reactivity-with-frameworks</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/daily-posting</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/nextjs-app-routing-conventions</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/react-declaritive-programming</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/useref</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/usestate</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/render-and-commit</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/jsx-rules</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://reese-log.vercel.app/about</loc><lastmod>2023-11-18T12:43:01.709Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
