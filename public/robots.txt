@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://reese-log.vercel.app/
+Host: https://reese-log.com/
 
 # Sitemaps
-Sitemap: https://reese-log.vercel.app/sitemap.xml
+Sitemap: https://reese-log.com/sitemap.xml

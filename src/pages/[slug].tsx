@@ -52,10 +52,10 @@ const DetailPage: NextPageWithLayout<Props> = ({ post, blockMap }) => {
 DetailPage.getLayout = function getlayout(page) {
   const getImage = () => {
     if (page.props?.post.thumbnail) return page.props?.post.thumbnail
-    // if (CONFIG.ogImageGenerateURL)
-    //   return `${CONFIG.ogImageGenerateURL}/${encodeURIComponent(
-    //     page.props?.post.title
-    //   )}.png`
+    if (CONFIG.ogImageGenerateURL)
+      return `${CONFIG.ogImageGenerateURL}/${encodeURIComponent(
+        page.props?.post.title
+      )}.png`
   }
 
   const getMetaConfig = () => {
