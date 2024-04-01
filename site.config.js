@@ -20,7 +20,7 @@ const CONFIG = {
   blog: {
     title: "reese.dev",
     description: "welcome to reese-log!",
-    theme: "auto", // ['light', 'dark', 'auto']
+    theme: "light", // ['light', 'dark', 'auto']
   },
 
   // CONFIG configration (required)
