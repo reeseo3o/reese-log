@@ -38,7 +38,7 @@ const MetaConfig: React.FC<MetaConfigProps> = ({ ...props }) => {
       {meta.image && <meta name="twitter:image" content={meta.image} />}
       <meta
         name="google-site-verification"
-        content={CONFIG.googleSearchConsole.config.siteVerification}
+        content="bYo-sWFA-ZxT87JpLcdXIKttbjdDUKx58TaJolxToQM"
       />
       {/* post */}
       {meta.type === "Post" && (
