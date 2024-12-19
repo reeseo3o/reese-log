@@ -56,6 +56,7 @@ const CONFIG = {
       repo: "reeseo3o/reese-log",
       "issue-term": "og:title",
       label: "💬 Utterances",
+      ref: "main",
     },
   },
   cusdis: {
