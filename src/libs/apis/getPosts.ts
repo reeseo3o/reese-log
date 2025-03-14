@@ -2,28 +2,15 @@ import { CONFIG } from "site.config"
 import { NotionAPI } from "notion-client"
 import { idToUuid } from "notion-utils"
 
-import getAllPageIds from "@libs/utils/notion/getAllPageIds"
-import getPageProperties from "@libs/utils/notion/getPageProperties"
-import { TPosts } from "@customTypes/index"
-
-declare global {
-  var notionDatas: { TPosts: TPosts; savedDate: Date }
-}
+import getAllPageIds from "src/libs/utils/notion/getAllPageIds"
+import getPageProperties from "src/libs/utils/notion/getPageProperties"
+import { TPosts } from "src/types"
 
 /**
  * @param {{ includePages: boolean }} - false: posts only / true: include pages
  */
 
-export async function getPosts() {
-  if (global?.notionDatas) {
-    const saved = global.notionDatas.savedDate
-    const now = new Date()
-    const diff = (now.getTime() - saved.getTime()) / 1000
-    if (diff < 60 * 60) {
-      return global.notionDatas.TPosts
-    }
-  }
-
+export const getPosts = async () => {
   let id = CONFIG.notionConfig.pageId as string
   const api = new NotionAPI()
 
@@ -44,16 +31,22 @@ export async function getPosts() {
   } else {
     // Construct Data
     const pageIds = getAllPageIds(response)
+    // get whole blocks over 100
+    const wholeBlocks = await (await api.getBlocks(pageIds)).recordMap.block
+
     const data = []
     for (let i = 0; i < pageIds.length; i++) {
       const id = pageIds[i]
-      const properties = (await getPageProperties(id, block, schema)) || null
+      const properties =
+        (await getPageProperties(id, wholeBlocks, schema)) || null
+      if (!wholeBlocks[id]) continue
+
       // Add fullwidth, createdtime to properties
       properties.createdTime = new Date(
-        block[id].value?.created_time
+        wholeBlocks[id].value?.created_time
       ).toString()
       properties.fullWidth =
-        (block[id].value?.format as any)?.page_full_width ?? false
+        (wholeBlocks[id].value?.format as any)?.page_full_width ?? false
 
       data.push(properties)
     }
@@ -65,8 +58,7 @@ export async function getPosts() {
       return dateB - dateA
     })
 
-    global.notionDatas = { TPosts: data, savedDate: new Date() }
-
-    return data as TPosts
+    const posts = data as TPosts
+    return posts
   }
 }
