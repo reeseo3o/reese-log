@@ -1,37 +1,50 @@
 import { CONFIG } from "site.config"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
-//TODO: useRef?
 
 type Props = {
   issueTerm: string
 }
 
 const Utterances: React.FC<Props> = ({ issueTerm }) => {
+  const commentsRef = useRef<HTMLDivElement>(null)
+  const scriptRef = useRef<HTMLScriptElement | null>(null)
+
   useEffect(() => {
     const theme = "github-light"
-    // 'github-dark'
-    const script = document.createElement("script")
-    const anchor = document.getElementById("comments")
-    if (!anchor) return
+    if (!commentsRef.current) return
+
+    if (scriptRef.current && commentsRef.current.contains(scriptRef.current)) {
+      commentsRef.current.removeChild(scriptRef.current)
+    }
+
+    scriptRef.current = document.createElement("script")
+    const script = scriptRef.current
 
     script.setAttribute("src", "https://utteranc.es/client.js")
     script.setAttribute("crossorigin", "anonymous")
-    script.setAttribute("async", `true`)
-    script.setAttribute("issue-term", issueTerm)
+    script.setAttribute("async", "true")
     script.setAttribute("theme", theme)
-    const config: { [key: string]: string } = CONFIG.utterances.config
-    Object.keys(config).forEach((key) => {
-      script.setAttribute(key, config[key])
-    })
-    anchor.appendChild(script)
+    
+    const { repo, label, ref } = CONFIG.utterances.config
+    script.setAttribute("repo", repo)
+    if (label) script.setAttribute("label", label)
+    if (ref) script.setAttribute("ref", ref)
+    
+    script.setAttribute("issue-term", issueTerm)
+    
+    commentsRef.current.appendChild(script)
+    
     return () => {
-      anchor.innerHTML = ""
+      if (scriptRef.current && commentsRef.current?.contains(scriptRef.current)) {
+        commentsRef.current.removeChild(scriptRef.current)
+      }
     }
-  })
+  }, [issueTerm])
+
   return (
     <>
-      <div id="comments" className="md:-ml-16">
+      <div ref={commentsRef} className="md:-ml-16">
         <div className="utterances-frame"></div>
       </div>
     </>
