@@ -54,7 +54,7 @@ const CONFIG = {
     enable: true,
     config: {
       repo: "reeseo3o/reese-log",
-      "issue-term": "pathname",
+      "issue-term": "og:title",
       label: "💬 Utterances",
       ref: "main",
     },
