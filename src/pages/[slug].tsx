@@ -9,15 +9,9 @@ import CustomError from "@containers/CustomError"
 import { getPostBlocks, getPosts } from "@libs/apis"
 
 export async function getStaticPaths() {
-  const posts = await getPosts()
-  const filteredPost = filterPosts(posts, {
-    acceptStatus: ["Public", "PublicOnDetail"],
-    acceptType: ["Paper", "Post", "Page"],
-  })
-
   return {
-    paths: filteredPost.map((row) => `/${row.slug}`),
-    fallback: true,
+    paths: [],
+    fallback: 'blocking',
   }
 }
 
