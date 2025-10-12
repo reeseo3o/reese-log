@@ -11,7 +11,12 @@ function hasChildren(block: BlockObjectResponse): boolean {
   return (block as any).has_children === true
 }
 
-async function getBlockChildren(blockId: string): Promise<BlockWithChildren[]> {
+async function getBlockChildren(blockId: string, depth = 0, maxDepth = 5): Promise<BlockWithChildren[]> {
+  if (depth >= maxDepth) {
+    console.warn(`[Notion API] 최대 깊이(${maxDepth}) 도달 - blockId: ${blockId}`)
+    return []
+  }
+
   const blocks: BlockWithChildren[] = []
   let hasMore = true
   let startCursor: string | undefined = undefined
@@ -28,20 +33,23 @@ async function getBlockChildren(blockId: string): Promise<BlockWithChildren[]> {
         (block: any): block is BlockObjectResponse => "type" in block
       )
 
-      for (const block of blockObjects) {
+      const blocksWithChildrenPromises = blockObjects.map(async (block: BlockObjectResponse) => {
         const blockWithChildren: BlockWithChildren = { ...block }
         
         if (hasChildren(block)) {
-          blockWithChildren.children = await getBlockChildren(block.id)
+          blockWithChildren.children = await getBlockChildren(block.id, depth + 1, maxDepth)
         }
 
-        blocks.push(blockWithChildren)
-      }
+        return blockWithChildren
+      })
+
+      const processedBlocks = await Promise.all(blocksWithChildrenPromises)
+      blocks.push(...processedBlocks)
 
       hasMore = response.has_more
       startCursor = response.next_cursor || undefined
     } catch (error: any) {
-      console.error(`[Notion API Error] 블록 가져오기 실패 - blockId: ${blockId}`, error.message)
+      console.error(`[Notion API Error] 블록 가져오기 실패 - blockId: ${blockId}, depth: ${depth}`, error.message)
       throw error
     }
   }
