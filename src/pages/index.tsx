@@ -28,7 +28,7 @@ export async function getStaticProps() {
         },
         posts: filteredPost,
       },
-      revalidate: 1,
+      revalidate: 3600,
     }
   } catch (error) {
     throw error

@@ -4,49 +4,52 @@ import Layout from "@components/Layout"
 import { CONFIG } from "@/site.config"
 import { NextPageWithLayout } from "@pages/_app"
 import { TPost } from "../types"
+import { BlockWithChildren } from "../types/notion"
 import CustomError from "@containers/CustomError"
 import { getPostBlocks, getPosts } from "@libs/apis"
 
 export async function getStaticPaths() {
-  const posts = await getPosts()
-  const filteredPost = filterPosts(posts, {
-    acceptStatus: ["Public", "PublicOnDetail"],
-    acceptType: ["Paper", "Post", "Page"],
-  })
-
   return {
-    paths: filteredPost.map((row) => `/${row.slug}`),
-    fallback: true,
+    paths: [],
+    fallback: 'blocking',
   }
 }
 
 export async function getStaticProps({ params: { slug } }: any) {
   try {
-    //includePages: true
     const posts = await getPosts()
     const post = posts.find((t) => t.slug === slug)
-    const blockMap = await getPostBlocks(post?.id!)
+    
+    if (!post) {
+      return {
+        props: {},
+        revalidate: 3600,
+      }
+    }
+
+    const blocks = await getPostBlocks(post.id)
 
     return {
-      props: { post, blockMap },
-      revalidate: 1,
+      props: { post, blocks },
+      revalidate: 3600, // 1시간마다 재생성 (ISR)
     }
   } catch (error) {
+    console.error("[getStaticProps Error]", error)
     return {
       props: {},
-      revalidate: 1,
+      revalidate: 3600,
     }
   }
 }
 
 type Props = {
   post: TPost
-  blockMap: any
+  blocks: BlockWithChildren[]
 }
 
-const DetailPage: NextPageWithLayout<Props> = ({ post, blockMap }) => {
+const DetailPage: NextPageWithLayout<Props> = ({ post, blocks }) => {
   if (!post) return <CustomError />
-  return <Detail blockMap={blockMap} data={post} />
+  return <Detail blocks={blocks} data={post} />
 }
 
 DetailPage.getLayout = function getlayout(page) {
