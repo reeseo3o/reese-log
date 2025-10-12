@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import Image from "next/image"
 import { BlockWithChildren } from "src/types/notion"
 import RichText from "./RichText"
 import CodeBlock from "./CodeBlock"
@@ -147,14 +146,13 @@ const Block: React.FC<BlockProps> = ({ block }) => {
       
       return (
         <figure className="notion-image my-6">
-          <div className="relative w-full" style={{ minHeight: "200px" }}>
-            <Image
+          <div className="relative w-full flex justify-center">
+            <img
               src={imageUrl}
               alt={caption || "Image"}
-              width={800}
-              height={600}
-              className="rounded-lg"
-              style={{ objectFit: "contain", width: "100%", height: "auto" }}
+              className="rounded-lg max-w-full h-auto"
+              style={{ maxHeight: "600px", objectFit: "contain" }}
+              loading="lazy"
             />
           </div>
           {caption && (
