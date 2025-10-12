@@ -104,3 +104,65 @@ pre[class*="language-"] {
   @apply text-gray-800 dark:text-gray-200;
   @apply bg-gray-100 dark:bg-zinc-800;
 }
+
+/* Custom Renderer Styles */
+.notion-renderer {
+  font-family: Pretendard, Roboto, sans-serif;
+  word-break: break-word;
+  line-height: 1.75;
+}
+
+/* Color styles */
+.notion-gray { @apply text-gray-600 dark:text-gray-400; }
+.notion-brown { @apply text-yellow-800 dark:text-yellow-600; }
+.notion-orange { @apply text-orange-600 dark:text-orange-400; }
+.notion-yellow { @apply text-yellow-600 dark:text-yellow-400; }
+.notion-green { @apply text-green-600 dark:text-green-400; }
+.notion-blue { @apply text-blue-600 dark:text-blue-400; }
+.notion-purple { @apply text-purple-600 dark:text-purple-400; }
+.notion-pink { @apply text-pink-600 dark:text-pink-400; }
+.notion-red { @apply text-red-600 dark:text-red-400; }
+.notion-gray_background { @apply bg-gray-100 dark:bg-gray-800; }
+.notion-brown_background { @apply bg-yellow-100 dark:bg-yellow-900/30; }
+.notion-orange_background { @apply bg-orange-100 dark:bg-orange-900/30; }
+.notion-yellow_background { @apply bg-yellow-100 dark:bg-yellow-900/30; }
+.notion-green_background { @apply bg-green-100 dark:bg-green-900/30; }
+.notion-blue_background { @apply bg-blue-100 dark:bg-blue-900/30; }
+.notion-purple_background { @apply bg-purple-100 dark:bg-purple-900/30; }
+.notion-pink_background { @apply bg-pink-100 dark:bg-pink-900/30; }
+.notion-red_background { @apply bg-red-100 dark:bg-red-900/30; }
+
+.notion-renderer pre[class*="language-"] {
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+.notion-renderer code[class*="language-"],
+.notion-renderer pre[class*="language-"] {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+}
+
+.notion-renderer .inline-code {
+  padding: 0.125rem 0.375rem;
+  margin: 0 0.125rem;
+  background-color: rgba(135, 131, 120, 0.15);
+  border-radius: 0.25rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875em;
+}
+
+.notion-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.notion-toggle summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.notion-toggle[open] summary::before {
+  transform: rotate(90deg);
+}
